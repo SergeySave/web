@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Test Page</title>
+</head>
+<body>
+<div style="text-align: center;">
+    <h1>
+        Result
+    </h1>
+</div>
+
+<!--/*@thymesVar id="testModelObject" type="com.sergey.web.TestObject"*/-->
+<p th:text="'Test Number: ' + ${testModelObject.data1}"></p>
+<p th:text="'Test String: ' + ${testModelObject.data2}"></p>
+<a th:href="@{/test}">Return</a>
+</body>
+</html>
