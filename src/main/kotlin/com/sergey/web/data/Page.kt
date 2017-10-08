@@ -30,11 +30,12 @@ private class PageBuilder {
     var subPages: Array<Page>? = null
         private set
 
-    fun makePage(): Page {
+    fun makePage(curr: String): Page {
         if (subPages != null) {
             val pages = subPages!!
             pages.forEach { page ->
                 page.link = "${this@PageBuilder.link}${page.link}"
+                page.current = curr.equals(page.link)
                 page.isSubPage = true
                 if (page.subPages.isNotEmpty()) {
                     throw NotSupportedException("Subpages may not have subpages")
@@ -59,9 +60,9 @@ private class PageArrayBuilder(val list: MutableList<Page> = mutableListOf()) {
             builder.link = "/${builder.name!!.replace(' ', '_').toLowerCase()}"
         }
         if (builder.current == null) {
-            builder.current = this.current.split("/").contains(builder.link!!)
+            builder.current = this.current.equals(builder.link!!)
         }
-        list.add(builder.makePage())
+        list.add(builder.makePage(current))
     }
 }
 

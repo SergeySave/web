@@ -10,3 +10,7 @@ ul.horizontal li {
 .navbar .dropdown-menu a:hover {
     color: #000!important;
 }
+
+.dropdown-item.active {
+    background-color: #dfe0e1 !important;
+}
