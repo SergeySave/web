@@ -10,11 +10,11 @@
         <!-- Font Awesome -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
         <!-- Bootstrap core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet"/>
+        <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"/>
         <!-- Material Design Bootstrap -->
-        <link href="css/mdb.min.css" rel="stylesheet"/>
+        <link th:href="@{/css/mdb.min.css}" rel="stylesheet"/>
         <!-- Your custom styles (optional) -->
-        <link href="css/style.css" rel="stylesheet"/>
+        <link th:href="@{/css/style.css}" rel="stylesheet"/>
     </head>
     <body>
         <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
@@ -26,15 +26,25 @@
                 <ul class="navbar-nav">
                     <!--/*@thymesVar id="pages" type="com.sergey.web.data.Page[]"*/-->
                     <div th:each="page : ${pages}">
-                        <li th:if="${page.current}" class="nav-item active">
-                            <a class="nav-link" th:href="@{${page.link}}">
+                        <div th:if="${page.subPages.length > 0}">
+                            <a class="nav-link dropdown-toggle" th:href="@{${page.link}}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span th:text="${page.name}"></span>
-                                <span class="sr-only">(current)</span>
                             </a>
-                        </li>
-                        <li th:if="!${page.current}" class="nav-item">
-                            <a class="nav-link" th:href="@{${page.link}}" th:text="${page.name}"></a>
-                        </li>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a th:each="subPage : ${page.subPages}" class="dropdown-item" th:href="@{${subPage.link}}" th:text="${subPage.name}"></a>
+                            </div>
+                        </div>
+                        <div th:if="${page.subPages.length == 0}">
+                            <li th:if="${page.current}" class="nav-item active">
+                                <a class="nav-link" th:href="@{${page.link}}">
+                                    <span th:text="${page.name}"></span>
+                                    <span class="sr-only">(current)</span>
+                                </a>
+                            </li>
+                            <li th:if="!${page.current}" class="nav-item">
+                                <a class="nav-link" th:href="@{${page.link}}" th:text="${page.name}"></a>
+                            </li>
+                        </div>
                     </div>
                 </ul>
             </div>
@@ -42,7 +52,7 @@
 
         <div th:fragment="title (text)">
             <div class="row">
-                <div class="flex-center col-md-12">
+                <div class="flex-center col-12">
                     <h1 th:text="${text}"></h1>
                 </div>
             </div>
@@ -53,13 +63,13 @@
         <div th:fragment="footer">
             <!-- SCRIPTS -->
             <!-- JQuery -->
-            <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" th:src="@{/js/jquery-3.2.1.min.js}"></script>
             <!-- Bootstrap tooltips -->
-            <script type="text/javascript" src="js/popper.min.js"></script>
+            <script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
             <!-- Bootstrap core JavaScript -->
-            <script type="text/javascript" src="js/bootstrap.min.js"></script>
+            <script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
             <!-- MDB core JavaScript -->
-            <script type="text/javascript" src="js/mdb.min.js"></script>
+            <script type="text/javascript" th:src="@{/js/mdb.min.js}"></script>
         </div>
     </body>
 </html>

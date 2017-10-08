@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="templates :: header (name='Home')"></div>
+    <body>
+        <div th:replace="templates :: navbar"></div>
+
+        <div style="height: 1.5em;"></div>
+
+        <div th:replace="templates :: title (text='Chess Neural Network')"></div>
+
+        <div class="row">
+            <div class="flex-center col-12">
+                <h3>
+                    September 2016 - June 2017
+                </h3>
+            </div>
+        </div>
+
+        <div style="height: 1.5em;"></div>
+
+        <div class="row flex-center">
+            <div class="flex-center col-sm-10 bg-light-dark z-depth-1-half">
+                <p>
+                    Over the course of my senior year of high school, I performed an Independent Study on Artificial
+                    Intelligence using Neural Networks where I wrote an deeply-connected feed-forward Artificial
+                    Neural Network from scratch in Java and I taught it to play chess.
+                    <br /><br />
+                    This project required me to do research on how Artificial Neural Networks are made and how they
+                    are used to teach computers to perform certain tasks. After I learned how to write my own Neural
+                    Network, I wrote a small and simple one to learn the
+                    <a href="https://en.wikipedia.org/wiki/Exclusive_or">XOR function</a>. After it was able to learn
+                    this function with a high success rate, I downloaded 18,313 games of chess from 12 different chess
+                    masters. Afterwards I reworked my code in order to be able to better process this volume of
+                    information. Over the course of the rest of the school year, I worked on improving my algorithm
+                    and changing the size of the neural network.
+                    <br /><br />
+                    While it never truly learned to play chess it did manage to memorize the first 7 moves of a couple
+                    of different openings. It was also able to change which opening it would use depending on what moves
+                    its opponent made. At the end of the year, I presented my results to a related class, in my
+                    case the AP Computer Science A class.
+                </p>
+            </div>
+        </div>
+
+        <div style="height: 3em;"></div>
+
+        <div class="row flex-center">
+            <div class="col-xl-1 col-lg-2 col-sm-3 col-4">
+                <h3 style="text-align: center;">
+                    Source Code
+                </h3>
+                <a href="https://github.com/SergeySave/NeuralNetwork">
+                    <img th:src="@{/images/github.png}" alt="github image" style="width: 100%;" />
+                </a>
+            </div>
+        </div>
+
+        <div th:replace="templates :: footer"></div>
+    </body>
+</html>

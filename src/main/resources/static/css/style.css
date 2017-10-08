@@ -6,3 +6,7 @@
 ul.horizontal li {
     display: inline;
 }
+
+.navbar .dropdown-menu a:hover {
+    color: #000!important;
+}
