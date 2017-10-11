@@ -5,20 +5,15 @@ import com.sergey.web.exception.NotSupportedException
 fun getPages(current: String) : Array<Page>  = pages {
     this.current = current
 
-    newPage {
-        name = "Home"
-    }
+    +"Home"
     newPage {
         name = "Projects"
         sub {
-            newPage {
-                name = "Chess Neural Network"
-            }
+            +"Space Game"
+            +"Chess Neural Network"
         }
     }
-    newPage {
-        name = "About Me"
-    }
+    +"About Me"
 }
 
 class Page(var link: String, var name: String, var current: Boolean, var isSubPage: Boolean, val subPages: Array<Page>)
@@ -64,6 +59,10 @@ private class PageArrayBuilder(val list: MutableList<Page> = mutableListOf()) {
         }
         list.add(builder.makePage(current))
     }
+
+    fun newPage(name: String) = newPage { this.name = name }
+
+    operator fun String.unaryPlus() = newPage(this)
 }
 
 private fun pages(func: PageArrayBuilder.()->Unit) : Array<Page> {
