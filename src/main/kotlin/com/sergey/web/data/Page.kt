@@ -11,6 +11,7 @@ fun getPages(current: String) : Array<Page>  = pages {
         sub {
             +"Space Game"
             +"Chess Neural Network"
+            +"Planet Renderer"
         }
     }
     +"About Me"
