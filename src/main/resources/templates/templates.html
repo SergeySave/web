@@ -31,6 +31,7 @@
                                 <span th:text="${page.name}"></span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <a th:if="${page.showThis}" class="dropdown-item subitem-title" th:href="@{${page.link}}" th:text="${page.name}" th:classappend="${page.current} ? active"></a>
                                 <a th:each="subPage : ${page.subPages}" class="dropdown-item" th:href="@{${subPage.link}}" th:text="${subPage.name}" th:classappend="${subPage.current} ? active"></a>
                             </div>
                         </div>

@@ -8,6 +8,7 @@ fun getPages(current: String) : Array<Page>  = pages {
     +"Home"
     newPage {
         name = "Projects"
+        showThis = true
         sub {
             +"Space Game"
             +"Chess Neural Network"
@@ -17,12 +18,13 @@ fun getPages(current: String) : Array<Page>  = pages {
     +"About Me"
 }
 
-class Page(var link: String, var name: String, var current: Boolean, var isSubPage: Boolean, val subPages: Array<Page>)
+class Page(var link: String, var name: String, var current: Boolean, var isSubPage: Boolean, var showThis: Boolean, val subPages: Array<Page>)
 
 private class PageBuilder {
     var link: String? = null
     var name: String? = null
     var current: Boolean? = null
+    var showThis: Boolean? = null
     var subPages: Array<Page>? = null
         private set
 
@@ -38,7 +40,7 @@ private class PageBuilder {
                 }
             }
         }
-        return Page(link!!, name!!, current!!, false, subPages ?: arrayOf())
+        return Page(link!!, name!!, current!!, false, showThis == true, subPages ?: arrayOf())
     }
 
     fun sub(func: PageArrayBuilder.()->Unit): Unit {

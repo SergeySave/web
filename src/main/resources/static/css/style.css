@@ -14,3 +14,7 @@ ul.horizontal li {
 .dropdown-item.active {
     background-color: #dfe0e1 !important;
 }
+
+.dropdown-item.subitem-title {
+    border-bottom: solid 2px #1f2021;
+}

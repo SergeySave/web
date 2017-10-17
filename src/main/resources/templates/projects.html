@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <div th:replace="templates :: header (name='Projects')"></div>
+    <body>
+        <div th:replace="templates :: navbar"></div>
+
+        <div style="height: 1.5em;"></div>
+
+        <div th:replace="templates :: title (text='Projects')"></div>
+
+        <!--/*@thymesVar id="projects" type="com.sergey.web.data.projects.Project[]"*/-->
+        <div class="container">
+            <div th:each="project : ${projects}">
+                <a th:href="@{${project.link}}">
+                    <div class="row bg-light-dark z-depth-1-half">
+                        <div class="col-md-2">
+                            <img th:src="@{${project.image}}" />
+                        </div>
+                        <div class="col-md-1"></div>
+                        <div class="col-md-7">
+                            <div class="row flex-center">
+                                <h3 th:text="${project.name}"></h3>
+                            </div>
+                            <div class="row">
+                                <p th:text="${project.desc}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                <div style="height: 1.5em"></div>
+            </div>
+        </div>
+
+        <div th:replace="templates :: footer"></div>
+    </body>
+</html>
