@@ -17,22 +17,22 @@ class ProjectsController {
             Project(name = "Chess Neural Network",
                     link = "/projects/chess_neural_network",
                     image = "/projects/chess_neural_network/icon.png",
-                    desc = ""),
+                    desc = "An Artificial Neural Network written from scratch and taught to play chess"),
             Project(name = "Planet Renderer",
                     link = "/projects/planet_renderer",
                     image = "/projects/planet_renderer/icon.png",
-                    desc = ""))
+                    desc = "A 3D planet renderer using a custom LOD algorithm"))
 
     @GetMapping("/projects")
     fun projectsMain(model: Model): String {
         model.addAttribute("pages", getPages("/projects"))
         model.addAttribute("projects", projects)
-        return "projects"
+        return "projects/projects"
     }
 
     @GetMapping("/projects/{project}")
     fun subProject(model: Model, @PathVariable("project") project: String): String {
         model.addAttribute("pages", getPages("/projects/$project"))
-        return "projects/$project"
+        return "projects/$project/$project"
     }
 }

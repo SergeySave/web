@@ -8,21 +8,25 @@
 
         <div th:replace="templates :: title (text='Projects')"></div>
 
-        <!--/*@thymesVar id="projects" type="com.sergey.web.data.projects.Project[]"*/-->
         <div class="container">
+            <!--/*@thymesVar id="projects" type="com.sergey.web.data.projects.Project[]"*/-->
             <div th:each="project : ${projects}">
                 <a th:href="@{${project.link}}">
                     <div class="row bg-light-dark z-depth-1-half">
                         <div class="col-md-2">
-                            <img th:src="@{${project.image}}" />
+                            <img th:src="@{${project.image}}" class="img-fluid" alt="Icon image"/>
                         </div>
                         <div class="col-md-1"></div>
                         <div class="col-md-7">
-                            <div class="row flex-center">
-                                <h3 th:text="${project.name}"></h3>
-                            </div>
                             <div class="row">
-                                <p th:text="${project.desc}"></p>
+                                <div class="col-12 flex-center">
+                                    <h3 th:text="${project.name}"></h3>
+                                </div>
+                            </div>
+                            <div class="row" th:if="${project.desc} != ''">
+                                <div class="col-12 flex-center">
+                                    <p th:text="${project.desc}"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
