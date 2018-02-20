@@ -13,7 +13,7 @@ class ProjectsController {
             Project(name = "Space Game",
                     link = "/projects/space_game",
                     image = "/projects/space_game/icon.png",
-                    desc = ""),
+                    desc = "A 2D real time strategy game set in space"),
             Project(name = "Chess Neural Network",
                     link = "/projects/chess_neural_network",
                     image = "/projects/chess_neural_network/icon.png",
