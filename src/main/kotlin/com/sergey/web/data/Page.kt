@@ -1,11 +1,13 @@
 package com.sergey.web.data
 
 import com.sergey.web.exception.NotSupportedException
+import org.springframework.ui.Model
 
 fun getPages(current: String) : Array<Page>  = pages {
     this.current = current
 
-    +"Home"
+    //+"Home"
+    +"About Me"
     newPage {
         name = "Projects"
         showThis = true
@@ -15,7 +17,12 @@ fun getPages(current: String) : Array<Page>  = pages {
             +"Planet Renderer"
         }
     }
-    +"About Me"
+    //+"About Me"
+}
+
+fun Model.setPage(page: String): String {
+    addAttribute("pages", getPages("/${page}"))
+    return page
 }
 
 class Page(var link: String, var name: String, var current: Boolean, var isSubPage: Boolean, var showThis: Boolean, val subPages: Array<Page>)

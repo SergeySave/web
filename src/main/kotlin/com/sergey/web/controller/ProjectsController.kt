@@ -1,7 +1,7 @@
 package com.sergey.web.controller
 
-import com.sergey.web.data.getPages
 import com.sergey.web.data.projects.Project
+import com.sergey.web.data.setPage
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
@@ -25,14 +25,13 @@ class ProjectsController {
 
     @GetMapping("/projects")
     fun projectsMain(model: Model): String {
-        model.addAttribute("pages", getPages("/projects"))
         model.addAttribute("projects", projects)
-        return "projects/projects"
+        return model.setPage("projects")
     }
 
     @GetMapping("/projects/{project}")
     fun subProject(model: Model, @PathVariable("project") project: String): String {
-        model.addAttribute("pages", getPages("/projects/$project"))
+        model.setPage("/projects/$project")
         return "projects/$project/$project"
     }
 }
