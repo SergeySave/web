@@ -8,7 +8,9 @@
 <div class="pusher">
     <div th:replace="templates :: mastTitle(text = 'About Me', desc='Sergey Savelyev')"></div>
 
-    <div class="ui vertical stripe segment">
+    <div class="ui padded basic segment"></div>
+
+    <div class="ui padded basic segment">
         <div class="ui middle aligned stackable grid container">
             <div class="row">
                 <div class="eight wide column">
@@ -28,6 +30,40 @@
             </div>
         </div>
     </div>
+
+    <div class="ui padded basic segment"></div>
+    <div class="ui padded basic segment"></div>
+
+    <div class="ui padded divided equal height stackable four column grid">
+        <div class="row">
+            <div class="column">
+                <a href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/">
+                    <div class="ui center aligned medium header">LinkedIn</div>
+                    <img th:src="@{/images/linkedin.png}" alt="LinkedIn image" class="ui fluid image"/>
+                </a>
+            </div>
+            <div class="column">
+                <a href="https://github.com/SergeySave">
+                    <div class="ui center aligned medium header">GitHub</div>
+                    <img th:src="@{/images/github.png}" alt="GitHub image" class="ui fluid image"/>
+                </a>
+            </div>
+            <div class="column">
+                <a href="mailto:sergeysav.nn@gatech.edu">
+                    <div class="ui center aligned medium header">Email</div>
+                    <img th:src="@{/images/email.png}" alt="Email image" class="ui fluid image"/>
+                </a>
+            </div>
+            <div class="column">
+                <a th:href="@{/Resume.pdf}">
+                    <div class="ui center aligned medium header">Resume</div>
+                    <img th:src="@{/images/resume.png}" alt="Resume Icon image" class="ui fluid image"/>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui padded basic segment"></div>
 
     <div th:replace="templates :: footer"></div>
 </div>
