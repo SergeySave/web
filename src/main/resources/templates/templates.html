@@ -11,17 +11,52 @@
               th:href="@{/semantic/dist/semantic.min.css}"/>
         <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
         <script th:src="@{/semantic/dist/semantic.min.js}"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/css.css" th:href="@{/css/css.css}"/>
     </head>
 
-    <div th:fragment="navbar" class="ui large stackable main menu">
+    <th:block th:fragment="mainNavbar">
+        <div class="ui large top fixed hidden menu">
+            <div class="ui container">
+                <div th:replace="templates :: navbarContents"></div>
+            </div>
+        </div>
+
+        <div class="ui vertical inverted sidebar menu left">
+            <div th:replace="templates :: navbarContents"></div>
+        </div>
+        <script>
+            $(document)
+                .ready(function () {
+                    // fix menu when passed
+                    $('.masthead')
+                        .visibility({
+                            once: false,
+                            onBottomPassed: function () {
+                                $('.fixed.menu').transition('fade in');
+                            },
+                            onBottomPassedReverse: function () {
+                                $('.fixed.menu').transition('fade out');
+                            }
+                        })
+                    ;
+
+                    // create sidebar and attach to menu open
+                    $('.ui.sidebar')
+                        .sidebar('attach events', '.toc.item')
+                    ;
+                });
+        </script>
+    </th:block>
+
+    <th:block th:fragment="navbarContents" class="ui large stackable main menu">
         <!--/*@thymesVar id="pages" type="com.sergey.web.data.Page[]"*/-->
         <th:block th:each="page : ${pages}">
-            <div th:if="${page.subPages.length > 0}" class="ui dropdown item"
-                 th:styleappend="${page.current} ? 'font-weight: bolder;'"
-                 th:ondblclick="${'linkTo(&quot;'+ page.link + '&quot;)'}">
+            <div th:if="${page.subPages.length > 0}" class="ui dropdown item">
                 <th:block th:text="${page.name}">Page Name</th:block>
                 <i class="ui dropdown icon"></i>
                 <div class="menu">
+                    <a class="item" th:href="@{${page.link}}" th:text="${page.overviewName}"
+                       th:classappend="${page.current} ? 'active'"></a>
                     <a class="item" th:each="subPage : ${page.subPages}" th:href="@{${subPage.link}}"
                        th:text="${subPage.name}" th:classappend="${subPage.current} ? 'active'"></a>
                 </div>
@@ -30,29 +65,49 @@
                th:classappend="${page.current} ? 'active'"
                th:styleappend="${page.current} ? 'font-weight: bolder;'"></a>
         </th:block>
-
-        <script>
-            $('.ui.dropdown').dropdown();
-
-            $('.main.menu').visibility({
-                type: 'fixed'
-            });
-
-            function linkTo(page) {
-                window.location.href = page;
-            }
-        </script>
-    </div>
+    </th:block>
 
     <div th:fragment="title (text)">
         <h1 class="ui center aligned header" th:text="${text}"></h1>
     </div>
 
-    <th:block th:fragment="footer">
-        <script>
-            $('.activating.element')
-                .popup();
-        </script>
+    <div th:fragment="mastTitle (text, desc)" class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <th:block th:replace="templates :: navbarContents">NAVBAR CONTENTS</th:block>
+            </div>
+        </div>
+
+        <div class="ui text container">
+            <h1 class="ui inverted header" th:text="${text}"></h1>
+            <h2 th:if="text != ''" th:text="${desc}"></h2>
+        </div>
+    </div>
+
+
+    <th:block th:fragment="footer" th:with="contents=${contents} ?: 'templates :: empty'">
+        <div class="ui inverted vertical footer segment">
+            <div class="ui container">
+                <div class="ui stackable inverted divided equal height stackable grid">
+                    <div class="three wide column">
+                        <h4 class="ui inverted header">About</h4>
+                        <div class="ui inverted link list">
+                            <a href="https://github.com/SergeySave" class="item">Github</a>
+                            <a href="mailto:sergeysav.nn@gatech.edu" class="item">Email</a>
+                            <a href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/" class="item">LinkedIn</a>
+                            <a th:href="@{/Resume.pdf}" class="item">Resume</a>
+                        </div>
+                    </div>
+                    <th:block th:include="__${contents}__"/>
+                </div>
+            </div>
+
+            <script>
+                $('.ui.dropdown').dropdown();
+                $('.activating.element').popup();
+            </script>
+        </div>
     </th:block>
 
+    <th:block th:fragment="empty"/>
 </html>

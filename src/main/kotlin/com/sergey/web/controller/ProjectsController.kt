@@ -32,6 +32,7 @@ class ProjectsController {
     @GetMapping("/projects/{project}")
     fun subProject(model: Model, @PathVariable("project") project: String): String {
         model.setPage("projects/$project")
+        model.addAttribute("project", projects.find { p -> p.link == "/projects/${project}" })
         return "projects/$project/$project"
     }
 }

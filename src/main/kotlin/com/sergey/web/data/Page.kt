@@ -25,11 +25,12 @@ fun Model.setPage(page: String, retVal: String = page): String {
     return retVal
 }
 
-class Page(var link: String, var name: String, var current: Boolean, var isSubPage: Boolean, var showThis: Boolean, val subPages: Array<Page>)
+class Page(var link: String, var name: String, var current: Boolean, var isSubPage: Boolean, var showThis: Boolean, var overviewName: String, val subPages: Array<Page>)
 
 private class PageBuilder {
     var link: String? = null
     var name: String? = null
+    var overviewName: String? = null
     var current: Boolean? = null
     var showThis: Boolean? = null
     var subPages: Array<Page>? = null
@@ -47,7 +48,8 @@ private class PageBuilder {
                 }
             }
         }
-        return Page(link!!, name!!, current!!, false, showThis == true, subPages ?: arrayOf())
+        return Page(link!!, name!!, current!!, false, showThis == true, overviewName ?: "Overview", subPages
+                ?: arrayOf())
     }
 
     fun sub(func: PageArrayBuilder.()->Unit): Unit {

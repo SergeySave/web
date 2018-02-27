@@ -1,47 +1,35 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <div th:replace="templates :: header (name='About Me')"></div>
-    <body>
-        <div th:replace="templates :: navbar"></div>
+<div th:replace="templates :: header (name='Home')"></div>
 
-        <div style="height: 1.5em;"></div>
+<body class="pushable">
+<div th:replace="templates :: mainNavbar"></div>
 
-        <div th:replace="templates :: title (text='About Me')"></div>
+<div class="pusher">
+    <div th:replace="templates :: mastTitle(text = 'About Me', desc='Sergey Savelyev')"></div>
 
-        <div class="ui raised very padded text container segment">
-            <p>
-                Hello, I'm Sergey Savelyev, a first-year Computer Science student at Georgia Tech.
-                I love Computer Science and I love working on my own personal programming projects.
-                You can view many of them under the projects tab of this website. I am very driven and
-                determined
-                to finish projects that I have started. Whenever I run into a tough challenge, I never give up,
-                but I persevere through it and I solve the problem in one way or another.
-            </p>
-        </div>
-
-        <img th:src="@{/images/me.jpg}" class="ui centered big rounded image" alt="Image of me"/>
-
-        <div class="ui basic padded segment">
-            <div class="ui horizontal segments">
-                <a class="ui segment" href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/">
-                    <div class="ui center aligned medium header">LinkedIn</div>
-                    <img th:src="@{/images/linkedin.png}" alt="LinkedIn image" class="ui fluid image"/>
-                </a>
-                <a class="ui segment" href="https://github.com/SergeySave">
-                    <div class="ui center aligned medium header">GitHub</div>
-                    <img th:src="@{/images/github.png}" alt="GitHub image" class="ui fluid image"/>
-                </a>
-                <a class="ui segment" href="mailto:sergeysav.nn@gatech.edu">
-                    <div class="ui center aligned medium header">Email</div>
-                    <img th:src="@{/images/email.png}" alt="Email image" class="ui fluid image"/>
-                </a>
-                <a class="ui segment" th:href="@{/Resume.pdf}">
-                    <div class="ui center aligned medium header">Resume</div>
-                    <img th:src="@{/images/resume.png}" alt="Resume Icon image" class="ui fluid image"/>
-                </a>
+    <div class="ui vertical stripe segment">
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="eight wide column">
+                    <p>
+                        I am a first-year Computer Science student at Georgia Tech.
+                        I love Computer Science and I love working on my own personal programming projects.
+                        You can view many of them on the projects page. I am very driven and
+                        determined to finish projects that I have started. Whenever I run into a tough
+                        challenge, I never give up, but I persevere through it and I solve the problem in one
+                        way or another.
+                    </p>
+                    <a class="ui huge button" href="/projects">Project Overview</a>
+                </div>
+                <div class="six wide right floated column">
+                    <img th:src="@{'images/me.jpg'}" class="ui large bordered rounded image"/>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div th:replace="templates :: footer"></div>
+    <div th:replace="templates :: footer"></div>
+</div>
     </body>
 </html>

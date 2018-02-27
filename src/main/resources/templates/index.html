@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <div th:replace="templates :: header (name='Home')"></div>
-    <body>
-        <div th:replace="templates :: navbar"></div>
 
-        <div style="height: 1.5em;"></div>
+    <body class="pushable">
+    <div th:replace="templates :: mainNavbar"></div>
 
-        <div th:replace="templates :: title (text='Sergey Savelyev\'s Website')"></div>
-
-        <!-- Stuff goes here -->
+    <div class="pusher">
+        <div th:replace="templates :: mastTitle(text = 'Empty Testing page', desc = 'This page is currently unused')"></div>
 
         <div th:replace="templates :: footer"></div>
+    </div>
     </body>
 </html>
