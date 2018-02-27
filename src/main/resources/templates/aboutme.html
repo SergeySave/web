@@ -8,75 +8,37 @@
 
         <div th:replace="templates :: title (text='About Me')"></div>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-1"></div>
-                <div class="flex-center col-md-10 bg-light-dark z-depth-1-half">
-                    <p>
-                        Hello, I'm Sergey Savelyev, a first-year Computer Science student at Georgia Tech.
-                        I love Computer Science and I love working on my own personal programming projects.
-                        You can view many of them under the projects tab of this website. I am very driven and
-                        determined
-                        to finish projects that I have started. Whenever I run into a tough challenge, I never give up,
-                        but I persevere through it and I solve the problem in one way or another.
-                    </p>
-                </div>
-            </div>
+        <div class="ui raised very padded text container segment">
+            <p>
+                Hello, I'm Sergey Savelyev, a first-year Computer Science student at Georgia Tech.
+                I love Computer Science and I love working on my own personal programming projects.
+                You can view many of them under the projects tab of this website. I am very driven and
+                determined
+                to finish projects that I have started. Whenever I run into a tough challenge, I never give up,
+                but I persevere through it and I solve the problem in one way or another.
+            </p>
+        </div>
 
-            <div style="height: 3em;"></div>
+        <img th:src="@{/images/me.jpg}" class="ui centered big rounded image" alt="Image of me"/>
 
-            <div class="row">
-                <div class="col flex-center">
-                    <img th:src="@{/images/me.jpg}" class="img-fluid" alt="Image of me"/>
-                </div>
-            </div>
-
-            <div style="height: 3em;"></div>
-
-            <div class="row flex-center">
-                <div class="col-xl-1 col-md-2 col-sm-3 col-4">
-                    <div class="flex-center">
-                        <h2>
-                            LinkedIn
-                        </h2>
-                    </div>
-                    <a href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/">
-                        <img th:src="@{/images/linkedin.png}" alt="linkedin image" style="width:100%"/>
-                    </a>
-                </div>
-                <div class="col-sm-1 col-0"></div>
-                <div class="col-xl-1 col-md-2 col-sm-3 col-4">
-                    <div class="flex-center">
-                        <h2>
-                            GitHub
-                        </h2>
-                    </div>
-                    <a href="https://github.com/SergeySave">
-                        <img th:src="@{/images/github.png}" alt="github image" style="width:100%"/>
-                    </a>
-                </div>
-                <div class="col-sm-1 col-0"></div>
-                <div class="col-xl-1 col-md-2 col-sm-3 col-4">
-                    <div class="flex-center">
-                        <h2>
-                            Email
-                        </h2>
-                    </div>
-                    <a href="mailto:sergeysav.nn@gatech.edu">
-                        <img th:src="@{/images/email.png}" alt="email image" style="width:100%"/>
-                    </a>
-                </div>
-                <div class="col-md-1 col-0"></div>
-                <div class="col-xl-1 col-md-2 col-sm-3 col-4">
-                    <div class="flex-center">
-                        <h2>
-                            Resume
-                        </h2>
-                    </div>
-                    <a th:href="@{/Resume.pdf}">
-                        <img th:src="@{/images/resume.png}" alt="resume image" style="width:100%"/>
-                    </a>
-                </div>
+        <div class="ui basic padded segment">
+            <div class="ui horizontal segments">
+                <a class="ui segment" href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/">
+                    <div class="ui center aligned medium header">LinkedIn</div>
+                    <img th:src="@{/images/linkedin.png}" alt="LinkedIn image" class="ui fluid image"/>
+                </a>
+                <a class="ui segment" href="https://github.com/SergeySave">
+                    <div class="ui center aligned medium header">GitHub</div>
+                    <img th:src="@{/images/github.png}" alt="GitHub image" class="ui fluid image"/>
+                </a>
+                <a class="ui segment" href="mailto:sergeysav.nn@gatech.edu">
+                    <div class="ui center aligned medium header">Email</div>
+                    <img th:src="@{/images/email.png}" alt="Email image" class="ui fluid image"/>
+                </a>
+                <a class="ui segment" th:href="@{/Resume.pdf}">
+                    <div class="ui center aligned medium header">Resume</div>
+                    <img th:src="@{/images/resume.png}" alt="Resume Icon image" class="ui fluid image"/>
+                </a>
             </div>
         </div>
 

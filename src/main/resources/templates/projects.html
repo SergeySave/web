@@ -8,31 +8,19 @@
 
         <div th:replace="templates :: title (text='Projects')"></div>
 
-        <div class="container">
-            <!--/*@thymesVar id="projects" type="com.sergey.web.data.projects.Project[]"*/-->
-            <div th:each="project : ${projects}">
-                <a th:href="@{${project.link}}">
-                    <div class="row bg-light-dark z-depth-1-half">
-                        <div class="col-md-2">
-                            <img th:src="@{${project.image}}" class="img-fluid" alt="Icon image"/>
-                        </div>
-                        <div class="col-md-1"></div>
-                        <div class="col-md-7">
-                            <div class="row">
-                                <div class="col-12 flex-center">
-                                    <h3 th:text="${project.name}"></h3>
-                                </div>
-                            </div>
-                            <div class="row" th:if="${project.desc} != ''">
-                                <div class="col-12 flex-center">
-                                    <p th:text="${project.desc}"></p>
-                                </div>
-                            </div>
-                        </div>
+        <!--/*@thymesVar id="projects" type="com.sergey.web.data.projects.Project[]"*/-->
+        <div th:each="project : ${projects}" class="ui raised very padded container segment">
+            <a th:href="@{${project.link}}">
+                <div class="ui stackable grid">
+                    <div class="four wide column">
+                        <img th:src="@{${project.image}}" class="ui fluid rounded image" alt="Icon image"/>
                     </div>
-                </a>
-                <div style="height: 1.5em"></div>
-            </div>
+                    <div class="twelve wide column">
+                        <div class="ui large header" th:text="${project.name}"></div>
+                        <p th:if="${project.desc} != ''" th:text="${project.desc}"></p>
+                    </div>
+                </div>
+            </a>
         </div>
 
         <div th:replace="templates :: footer"></div>

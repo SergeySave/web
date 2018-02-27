@@ -31,7 +31,7 @@ class ProjectsController {
 
     @GetMapping("/projects/{project}")
     fun subProject(model: Model, @PathVariable("project") project: String): String {
-        model.setPage("/projects/$project")
+        model.setPage("projects/$project")
         return "projects/$project/$project"
     }
 }

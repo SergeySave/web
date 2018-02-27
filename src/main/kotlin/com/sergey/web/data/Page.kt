@@ -3,8 +3,8 @@ package com.sergey.web.data
 import com.sergey.web.exception.NotSupportedException
 import org.springframework.ui.Model
 
-fun getPages(current: String) : Array<Page>  = pages {
-    this.current = current
+fun getPages(curr: String): Array<Page> = pages {
+    this.current = curr
 
     //+"Home"
     +"About Me"
@@ -20,9 +20,9 @@ fun getPages(current: String) : Array<Page>  = pages {
     //+"About Me"
 }
 
-fun Model.setPage(page: String): String {
+fun Model.setPage(page: String, retVal: String = page): String {
     addAttribute("pages", getPages("/${page}"))
-    return page
+    return retVal
 }
 
 class Page(var link: String, var name: String, var current: Boolean, var isSubPage: Boolean, var showThis: Boolean, val subPages: Array<Page>)
@@ -65,7 +65,7 @@ private class PageArrayBuilder(val list: MutableList<Page> = mutableListOf()) {
             builder.link = "/${builder.name!!.replace(' ', '_').toLowerCase()}"
         }
         if (builder.current == null) {
-            builder.current = this.current.equals(builder.link!!)
+            builder.current = this.current == builder.link!!
         }
         list.add(builder.makePage(current))
     }

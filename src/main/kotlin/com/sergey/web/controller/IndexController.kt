@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping
 @Controller
 class IndexController {
     @GetMapping("")
-    fun indexGet(model: Model): String = model.setPage("aboutme")
+    fun indexGet(model: Model): String = model.setPage("about_me", "aboutme")
 
     @GetMapping("home")
-    fun homeGet(model: Model): String = model.setPage("aboutme")
+    fun homeGet(model: Model): String = model.setPage("about_me", "aboutme")
 
 }

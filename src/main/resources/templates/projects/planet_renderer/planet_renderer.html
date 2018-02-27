@@ -8,27 +8,24 @@
 
 <div th:replace="templates :: title (text='Planet Renderer')"></div>
 
-<div class="container">
-    <div class="row">
-        <div class="flex-center col-12">
-            <h3>
+<div class="ui raised very padded text container segment">
+    <div class="ui medium header">
                 May 2015
-            </h3>
-        </div>
     </div>
 
-    <div style="height: 1.5em;"></div>
-
-    <div class="row">
-        <div class="flex-center col-sm-12 bg-light-dark z-depth-1-half">
-            <p>
+    <p style="text-indent: 2.0em;">
                 In the spring of my junior year of high school, I had gotten interested in 3-dimensional graphics
                 and how your computer rendered them to your screen. I decided that I would make a project that used
                 3D graphics techniques in order to render a 3D planet in real time. This project, written in Java
                 using LibGDX to provide me access to OpenGL functions, started off with me simply drawing a 3D cube
                 to the screen and then being able to rotate the camera around it. After I completed this relatively
                 easy task, I set on to replace the cube with a planet.
-                <br/><br/>
+    </p>
+    <div class="activating element" data-position="top right"
+         data-content="A screenshot of the rendering produced by the planet renderer program. As you can see the mountains in the background are much more jagged than the terrain closer to the view. The colors are set from the height of the terrain.">
+        <img class="ui large right floated image" th:src="@{/projects/planet_renderer/icon.png}"/>
+    </div>
+    <p style="text-indent: 2.0em;">
                 First I cut up each face of the cube into smaller subfaces. Each of the six faces on my cube was cut
                 into five hundred and twelve columns and each of those columns into another five hundred and twelve
                 rows. This left me with nearly one and a half million squares collectively making up a cube. I then
@@ -41,7 +38,14 @@
                 meet my expectations. It would take my program approximately a minute to generate all of the points
                 and send them to my GPU in order to render a much lower quality version of the planet than I had
                 hoped to make while running slower than real-time.
-                <br/><br/>
+    </p>
+    <div class="activating element" data-position="top right" data-content="A screenshot of the rendering produced by the planet renderer program with wireframe mode
+                            turned on. With this it is visible how the land in the background has less triangles than
+                            the land in the foreground. The transitions between different levels of detail are also
+                            visible.">
+        <img class="ui large right floated image" th:src="@{/projects/planet_renderer/wireframe.png}"/>
+    </div>
+    <p style="text-indent: 2.0em;">
                 I realized that I needed to change something big if I wanted different results. A couple academic
                 research papers later, I realized what I needed to do. I needed to implement a level of detail
                 algorithm. This algorithm would change the amount of points that it was using to render the planet
@@ -59,57 +63,17 @@
                 academic papers that I had read finally clicked after I had finished the project.
             </p>
         </div>
-    </div>
 
-    <div style="height: 3em;"></div>
-
-    <div class="row">
-        <div class="col-6">
-            <div class="row">
-                <div class="col flex-center">
-                    <img class="img-fluid" th:src="@{/projects/planet_renderer/icon.png}"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col flex-center">
-                    A screenshot of the rendering produced by the planet renderer program. As you can see the
-                    mountains in the background are much more jagged than the terrain closer to the view. The
-                    colors are set from the height of the terrain.
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="row">
-                <div class="col flex-center">
-                    <img class="img-fluid" th:src="@{/projects/planet_renderer/wireframe.png}" alt="Wireframe image"
-                         title="Wireframe image"/>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col flex-center">
-                    A screenshot of the rendering produced by the planet renderer program with wireframe mode
-                    turned on. With this it is visible how the land in the background has less triangles than
-                    the land in the foreground. The transitions between different levels of detail are also
-                    visible.
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div style="height: 3em;"></div>
-
-    <div class="row flex-center">
-        <div class="col-xl-1 col-lg-2 col-sm-3 col-4">
-            <h3 style="text-align: center;">
-                Source Code
-            </h3>
-            <a href="https://github.com/SergeySave/Planet">
-                <img th:src="@{/images/github.png}" alt="github image" style="width: 100%;"/>
-            </a>
-        </div>
-    </div>
-</div>
+<a class="ui basic padded segment" href="https://github.com/SergeySave/Planet">
+    <div class="ui center aligned medium header">Source Code</div>
+    <img th:src="@{/images/github.png}" alt="GitHub logo" class="ui medium centered image"/>
+</a>
 
 <div th:replace="templates :: footer"></div>
+
+<script>
+    $('.activating.element')
+        .popup();
+</script>
 </body>
 </html>
