@@ -9,7 +9,7 @@
     <!--/*@thymesVar id="project" type="Project"*/-->
     <div th:replace="templates :: mastTitle(text = ${project.name}, desc = ${project.desc})"></div>
 
-    <div class="ui raised very padded text container segment">
+    <div class="ui basic text container segment">
         <div class="ui medium header">
             September 2016 - June 2017
         </div>
@@ -24,7 +24,7 @@
                             stage
                             of its training the AI thinks that the purple tile should be moved to the light blue tile.
                             With enough training the AI will start to make legal moves.">
-            <img class="ui large right floated image" th:src="@{/projects/chess_neural_network/icon.png}"/>
+            <img class="ui medium right floated image" th:src="@{/projects/chess_neural_network/icon.png}"/>
         </div>
         <p style="text-indent: 2.0em;">
             I started off this project by researching how Artificial Neural Networks worked and were
@@ -59,7 +59,7 @@
                             unit along the x axis represents a single iteration of the backpropagation algorithm. The y
                             axis
                             is the squared error for the iteration of the algorithm.">
-            <img class="ui large right floated image" th:src="@{/projects/chess_neural_network/output.png}"/>
+            <img class="ui medium right floated image" th:src="@{/projects/chess_neural_network/output.png}"/>
         </div>
         <p style="text-indent: 2.0em;">
             So next, I downloaded 18,313 games of chess from 12 different chess masters in order to use to

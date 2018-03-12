@@ -9,7 +9,7 @@
     <!--/*@thymesVar id="project" type="Project"*/-->
     <div th:replace="templates :: mastTitle(text = ${project.name}, desc = ${project.desc})"></div>
 
-    <div class="ui raised very padded text container segment">
+    <div class="ui basic text container segment">
         <div class="ui medium header">
             May 2015
         </div>
@@ -24,7 +24,7 @@
         </p>
         <div class="activating element" data-position="top right"
              data-content="A screenshot of the rendering produced by the planet renderer program. As you can see the mountains in the background are much more jagged than the terrain closer to the view. The colors are set from the height of the terrain.">
-            <img class="ui large right floated image" th:src="@{/projects/planet_renderer/icon.png}"/>
+            <img class="ui medium right floated image" th:src="@{/projects/planet_renderer/icon.png}"/>
         </div>
         <p style="text-indent: 2.0em;">
             First I cut up each face of the cube into smaller subfaces. Each of the six faces on my cube was cut
@@ -44,7 +44,7 @@
                             turned on. With this it is visible how the land in the background has less triangles than
                             the land in the foreground. The transitions between different levels of detail are also
                             visible.">
-            <img class="ui large right floated image" th:src="@{/projects/planet_renderer/wireframe.png}"/>
+            <img class="ui medium right floated image" th:src="@{/projects/planet_renderer/wireframe.png}"/>
         </div>
         <p style="text-indent: 2.0em;">
             I realized that I needed to change something big if I wanted different results. A couple academic
