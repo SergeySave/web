@@ -71,7 +71,9 @@
         <h1 class="ui center aligned header" th:text="${text}"></h1>
     </div>
 
-    <div th:fragment="mastTitle (text, desc)" class="ui inverted vertical masthead center aligned segment">
+    <div th:fragment="mastTitle (text, desc)" th:with="contents=${contents} ?: 'templates :: empty'"
+         class="ui inverted vertical masthead center aligned segment"
+         th:classappend="${contents} != 'templates :: empty' ? 'long'">
         <div class="ui container">
             <div class="ui large secondary inverted pointing menu">
                 <th:block th:replace="templates :: navbarContents">NAVBAR CONTENTS</th:block>
@@ -81,9 +83,34 @@
         <div class="ui text container">
             <h1 class="ui inverted header" th:text="${text}"></h1>
             <h2 th:if="text != ''" th:text="${desc}"></h2>
+            <th:block th:include="__${contents}__"/>
         </div>
     </div>
 
+    <div th:fragment="mastTitleImage (text, desc, image)" th:with="contents=${contents} ?: 'templates :: empty'"
+         class="ui inverted vertical masthead center aligned segment"
+         th:classappend="${contents} != 'templates :: empty' ? 'long'">
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <th:block th:replace="templates :: navbarContents">NAVBAR CONTENTS</th:block>
+            </div>
+        </div>
+
+        <div class="ui grid">
+            <div class="four wide column">
+                <img th:src="${image}" class="ui fluid centered middle aligned circular image"
+                     style="margin-left: 16px;"
+                     th:styleappend="contents == '' ? 'margin-top: 24px;' : 'margin-top: 56px;' "/>
+            </div>
+            <div class="twelve wide column">
+                <div class="ui text container">
+                    <h1 class="ui inverted header" th:text="${text}"></h1>
+                    <h2 th:if="desc != ''" th:text="${desc}"></h2>
+                    <th:block th:include="__${contents}__"/>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <th:block th:fragment="footer" th:with="contents=${contents} ?: 'templates :: empty'">
         <div class="ui inverted vertical footer segment">
@@ -91,12 +118,18 @@
                 <div class="ui stackable inverted divided equal height stackable grid">
                     <div class="three wide column">
                         <h4 class="ui inverted header">About</h4>
-                        <div class="ui inverted link list">
-                            <a href="https://github.com/SergeySave" class="item">Github</a>
-                            <a href="mailto:sergeysav.nn@gatech.edu" class="item">Email</a>
-                            <a href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/" class="item">LinkedIn</a>
-                            <a th:href="@{/Resume.pdf}" class="item">Resume</a>
-                        </div>
+                        <a href="https://github.com/SergeySave">
+                            <img th:src="@{/images/github_inverted.png}" alt="GitHub image" class="ui mini image"/>
+                        </a>
+                        <a href="mailto:sergeysav.nn@gatech.edu">
+                            <img th:src="@{/images/email_inverted.png}" alt="Email image" class="ui mini image"/>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/">
+                            <img th:src="@{/images/linkedin_inverted.png}" alt="LinkedIn image" class="ui mini image"/>
+                        </a>
+                        <a th:href="@{/Resume.pdf}">
+                            <img th:src="@{/images/resume_inverted.png}" alt="Resume Icon image" class="ui mini image"/>
+                        </a>
                     </div>
                     <th:block th:include="__${contents}__"/>
                 </div>
