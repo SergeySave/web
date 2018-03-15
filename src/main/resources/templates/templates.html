@@ -81,7 +81,7 @@
         </div>
 
         <div class="ui text container">
-            <h1 class="ui inverted header" th:text="${text}"></h1>
+            <h1 class="ui inverted header topMargin" th:text="${text}"></h1>
             <h2 th:if="text != ''" th:text="${desc}"></h2>
             <th:block th:include="__${contents}__"/>
         </div>
@@ -94,15 +94,33 @@
             <div class="ui large secondary inverted pointing menu">
                 <th:block th:replace="templates :: navbarContents">NAVBAR CONTENTS</th:block>
             </div>
-        </div>
 
-        <img th:src="${image}" class="ui small left floated middle aligned circular image"
-             style="margin-left: 16px;"
-             th:styleappend="contents == '' ? 'margin-top: 24px;' : 'margin-top: 56px;' "/>
-        <div class="ui text container">
-            <h1 class="ui inverted header" th:text="${text}"></h1>
-            <h2 th:if="desc != ''" th:text="${desc}"></h2>
-            <th:block th:include="__${contents}__"/>
+            <div class="ui one column grid">
+                <div class="computer only column">
+                    <img th:src="${image}" class="ui small left floated middle aligned circular image"
+                         th:styleappend="contents == '' ? 'margin-top: 24px;' : 'margin-top: 56px;' "/>
+                    <div class="ui text container">
+                        <h1 class="ui inverted header topMargin" th:text="${text}"></h1>
+                        <h2 th:if="desc != ''" th:text="${desc}"></h2>
+                        <th:block th:include="__${contents}__"/>
+                    </div>
+                </div>
+                <div class="tablet mobile only column">
+                    <div class="ui one column grid">
+                        <div class="column">
+                            <img th:src="${image}" class="ui small middle aligned circular image"
+                                 style="margin-top: 8px;"/>
+                        </div>
+                        <div class="column">
+                            <div class="ui text container">
+                                <h1 class="ui inverted header" th:text="${text}"></h1>
+                                <h2 th:if="desc != ''" th:text="${desc}"></h2>
+                                <th:block th:include="__${contents}__"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
