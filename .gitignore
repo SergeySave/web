@@ -1,7 +1,18 @@
+### Node ###
 src/main/resources/static/node_modules/
-src/main/resources/static/semantic/
 src/main/resources/static/package-lock.json
 
+### Semantic ###
+src/main/resources/static/semantic/dist/
+src/main/resources/static/semantic/tasks/
+src/main/resources/static/semantic/src/definitions/
+src/main/resources/static/semantic/src/themes/
+src/main/resources/static/semantic/src/semantic.less
+src/main/resources/static/semantic/src/theme.config
+src/main/resources/static/semantic/src/theme.less
+src/main/resources/static/semantic/gulpfile.js
+
+### Gradle ####
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar

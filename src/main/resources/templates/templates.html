@@ -96,19 +96,13 @@
             </div>
         </div>
 
-        <div class="ui grid">
-            <div class="four wide column">
-                <img th:src="${image}" class="ui fluid centered middle aligned circular image"
-                     style="margin-left: 16px;"
-                     th:styleappend="contents == '' ? 'margin-top: 24px;' : 'margin-top: 56px;' "/>
-            </div>
-            <div class="twelve wide column">
-                <div class="ui text container">
-                    <h1 class="ui inverted header" th:text="${text}"></h1>
-                    <h2 th:if="desc != ''" th:text="${desc}"></h2>
-                    <th:block th:include="__${contents}__"/>
-                </div>
-            </div>
+        <img th:src="${image}" class="ui small left floated middle aligned circular image"
+             style="margin-left: 16px;"
+             th:styleappend="contents == '' ? 'margin-top: 24px;' : 'margin-top: 56px;' "/>
+        <div class="ui text container">
+            <h1 class="ui inverted header" th:text="${text}"></h1>
+            <h2 th:if="desc != ''" th:text="${desc}"></h2>
+            <th:block th:include="__${contents}__"/>
         </div>
     </div>
 
