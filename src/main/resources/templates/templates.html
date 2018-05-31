@@ -128,20 +128,26 @@
         <div class="ui inverted vertical footer segment">
             <div class="ui container">
                 <div class="ui stackable inverted divided equal height stackable grid">
-                    <div class="three wide column">
+                    <div class="three wide two wide large screen column">
                         <h4 class="ui inverted header">About</h4>
-                        <a href="https://github.com/SergeySave">
-                            <img th:src="@{/images/github_inverted.png}" alt="GitHub image" class="ui mini image"/>
-                        </a>
-                        <a href="mailto:sergeysav.nn@gatech.edu">
-                            <img th:src="@{/images/email_inverted.png}" alt="Email image" class="ui mini image"/>
-                        </a>
-                        <a href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/">
-                            <img th:src="@{/images/linkedin_inverted.png}" alt="LinkedIn image" class="ui mini image"/>
-                        </a>
-                        <a th:href="@{/Resume.pdf}">
-                            <img th:src="@{/images/resume_inverted.png}" alt="Resume Icon image" class="ui mini image"/>
-                        </a>
+                        <div class="ui two column inverted grid">
+                            <a href="https://github.com/SergeySave">
+                                <img th:src="@{/images/github_inverted.png}" alt="GitHub image" class="ui mini image"
+                                     style="padding: 5px 0px 5px 0px"/>
+                            </a>
+                            <a href="mailto:sergeysav.nn@gatech.edu">
+                                <img th:src="@{/images/email_inverted.png}" alt="Email image" class="ui mini image"
+                                     style="padding: 5px 0px 5px 0px"/>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sergey-savelyev-a8928814b/">
+                                <img th:src="@{/images/linkedin_inverted.png}" alt="LinkedIn image"
+                                     class="ui mini image" style="padding: 5px 0px 5px 0px"/>
+                            </a>
+                            <a th:href="@{/Resume.pdf}">
+                                <img th:src="@{/images/resume_inverted.png}" alt="Resume Icon image"
+                                     class="ui mini image" style="padding: 5px 0px 5px 0px"/>
+                            </a>
+                        </div>
                     </div>
                     <th:block th:include="__${contents}__"/>
                 </div>

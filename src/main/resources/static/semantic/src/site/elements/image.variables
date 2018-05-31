@@ -2,4 +2,5 @@
     User Variable Overrides
 *******************************/
 
+@miniWidth: 40px;
 @smallWidth: 225px;
