@@ -1,0 +1,14 @@
+{
+  "name": "npm_dependencies",
+  "version": "1.0.0",
+  "description": "The NPM dependencies for the website",
+  "main": "",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "semantic-ui": "^2.3.3"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": "Sergey Savelyev",
+  "license": "MIT"
+}
