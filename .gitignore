@@ -10,6 +10,9 @@ src/main/resources/static_private/semantic/dist/
 /build/
 !gradle/wrapper/gradle-wrapper.jar
 
+### Other
+upload
+
 ### STS ###
 .apt_generated
 .classpath
