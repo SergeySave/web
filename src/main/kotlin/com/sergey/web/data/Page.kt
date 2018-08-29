@@ -6,18 +6,17 @@ import org.springframework.ui.Model
 fun getPages(curr: String): Array<Page> = pages {
     this.current = curr
 
-    //+"Home"
     +"About Me"
     newPage {
         name = "Projects"
         showThis = true
         sub {
+            +"Algorithm Visualizer"
             +"Space Game"
             +"Chess Neural Network"
             +"Planet Renderer"
         }
     }
-    //+"About Me"
 }
 
 fun Model.setPage(page: String, retVal: String = page): String {

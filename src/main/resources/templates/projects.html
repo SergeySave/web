@@ -12,7 +12,7 @@
         <div class="ui middle aligned stackable vertically divided grid container">
             <!--/*@thymesVar id="projects" type="com.sergey.web.data.projects.Project[]"*/-->
             <div th:each="project : ${projects}" class="row">
-                <a th:href="@{${project.link}}">
+                <a th:href="@{${project.link}}" class="ui container">
                     <div class="ui stackable grid">
                         <div class="four wide column">
                             <img th:src="@{${project.image}}" class="ui fluid rounded image" alt="Icon image"/>
