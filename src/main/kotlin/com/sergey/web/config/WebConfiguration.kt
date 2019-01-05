@@ -13,6 +13,7 @@ class WebConfiguration : WebMvcConfigurerAdapter() {
         registry.addResourceHandler("/semantic/**")
                 .addResourceLocations("classpath:/static_private/semantic/dist/")
         registry.addResourceHandler("/**")
+                .addResourceLocations("file:web/staticOverride/")
                 .addResourceLocations("classpath:/static/")
     }
 }
